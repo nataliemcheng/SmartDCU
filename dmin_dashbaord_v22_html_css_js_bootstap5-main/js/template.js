@@ -11,6 +11,20 @@ $(function() {
         $('.open').removeClass('sidebar-mini');
     });
 
+    // This code snippet is used to highlight the active menu item in the sidebar based on the current page URL.
+    // It retrieves the current page URL segment and iterates through each anchor tag in the menu list.
+    // If the href attribute of the anchor tag contains the current page URL segment, it adds the 'active' class to the anchor tag and its parent sub-menu.
+    // This provides visual feedback to the user indicating the active page in the sidebar menu.
+    var segment = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+    $('.menu-list li a').each(function () {
+        var $this = $(this);
+        if ($this.attr('href').indexOf(segment) !== -1) {
+            $this.addClass('active');
+            $this.parents('.sub-menu').addClass('show');
+        }
+    });
+
+
     // layout a sidebar mini version
     $('.sidebar-mini-btn').on('click', function () {
         $('.sidebar').toggleClass('sidebar-mini');
