@@ -298,7 +298,7 @@
                               <label for="campusSelect" class="form-label">Select Campus:</label>
                               <select class="form-select" id="campusSelect">
                                 <option value="St. Hallows Campus">St. Hallows Campus</option>
-                                <option value="Glasnevien Campus">Glasnevien Campus</option>
+                                <option value="Glasnevin Campus">Glasnevin Campus</option>
                                 <option value="St. Patrick Campus">St. Patrick Campus</option>
                               </select>
                             </div>
@@ -639,8 +639,8 @@
     parkingViolationData: [10, 20, 5, 15]
   };
 
-  // Sample data for Glasnevien Campus
-  const glasnevienData = {
+  // Sample data for Glasnevin Campus
+  const GlasnevinData = {
     availableSpots: 80,
     occupiedSpots: 40,
     visitorData: [40, 30, 30],
@@ -698,8 +698,8 @@
     let data;
     if (selectedCampus === 'St. Hallows Campus') {
       data = stHallowsData;
-    } else if (selectedCampus === 'Glasnevien Campus') {
-      data = glasnevienData;
+    } else if (selectedCampus === 'Glasnevin Campus') {
+      data = GlasnevinData;
     } else if (selectedCampus === 'St. Patrick Campus') {
       data = stPatrickData;
     }
