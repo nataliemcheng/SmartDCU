@@ -22,41 +22,54 @@ $(function() {
         $('.card-chat').toggleClass('open');
     });
 
+    // This code snippet is used to highlight the active menu item in the sidebar based on the current page URL.
+    // It retrieves the current page URL segment and iterates through each anchor tag in the menu list.
+    // If the href attribute of the anchor tag contains the current page URL segment, it adds the 'active' class to the anchor tag and its parent sub-menu.
+    // This provides visual feedback to the user indicating the active page in the sidebar menu.
+    var segment = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+    $('.menu-list li a').each(function () {
+        var $this = $(this);
+        if ($this.attr('href').indexOf(segment) !== -1) {
+            $this.addClass('active');
+            $this.parents('.sub-menu').parents('.collapsed').find('.m-link').addClass('active');
+        }
+    });
+
     $(".theme-rtl input").on('change',function() {
         if(this.checked) {
             $("body").addClass('rtl_mode');
         }else{
             $("body").removeClass('rtl_mode');
         }
-       
+
     });
 
     // cSidebar overflow daynamic height
-    
+
     overFlowDynamic();
 
     $(window).resize(function(){
         overFlowDynamic();
     });
 
-    function overFlowDynamic(){ 
+    function overFlowDynamic(){
         var sideheight=$(".sidebar.sidebar-mini").height() + 48;
-        
-        if(sideheight <= 760) {  
-            $(".sidebar.sidebar-mini").css( "overflow", "scroll");  
+
+        if(sideheight <= 760) {
+            $(".sidebar.sidebar-mini").css( "overflow", "scroll");
         }
         else{
-            $(".sidebar.sidebar-mini").css( "overflow", "visible"); 
+            $(".sidebar.sidebar-mini").css( "overflow", "visible");
         }
     }
-    
+
 
     // Dropdown scroll hide using table responsive
-    
+
     $('.table-responsive').on('show.bs.dropdown', function () {
         $('.table-responsive').css( "overflow", "inherit" );
     });
-   
+
     $('.table-responsive').on('hide.bs.dropdown', function () {
             $('.table-responsive').css( "overflow", "auto" );
     })
@@ -67,7 +80,7 @@ $(function() {
     var currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
-    
+
         if (currentTheme === 'dark') {
             toggleSwitch.checked = true;
         }
@@ -82,10 +95,10 @@ $(function() {
             localStorage.setItem('theme', 'dark');
             $('.theme-high-contrast input[type="checkbox"]').prop("checked", false);
         }
-        else {        
+        else {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
-        }    
+        }
     }
     toggleSwitch.addEventListener('change', switchTheme, false);
     // end
@@ -105,4 +118,3 @@ s0.parentNode.insertBefore(s1,s0);
 
 
 
- 
