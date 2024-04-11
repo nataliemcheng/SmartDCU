@@ -40,12 +40,12 @@ $(function() {
                 }
             }]
         }
-        var chart = new ApexCharts( document.querySelector("#apex-MainCategories"),options);
+        var chart = new ApexCharts( document.querySelector("#apex-MainCategories"),options);        
         chart.render();
-    });
+    }); 
 
     // Employees Analytics
-    $(document).ready(function() {
+    $(document).ready(function() { 
         var options = {
             series: [{
                 name: 'Available',
@@ -64,12 +64,12 @@ $(function() {
                     lines: {
                         show: false
                     }
-                },
-                yaxis: {
+                },   
+                yaxis: { 
                     lines: {
                         show: false
                     }
-                },
+                }, 
             },
             stroke: {
                 width: 4,
@@ -116,11 +116,11 @@ $(function() {
 
         var chart = new ApexCharts(document.querySelector("#apex-emplyoeeAnalytics"), options);
         chart.render();
-    });
+    });  
 
      // Hr Resorce
     $(document).ready(function() {
-
+        
         var options = {
             series: [{
                 name: 'Ui/Ux Designer',

@@ -1,22 +1,30 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Table Example </title>
+    <title>Noise Level</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
     <!-- plugin css file  -->
     <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
     <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
-
     <!-- project css file  -->
     <link rel="stylesheet" href="assets/css/my-task.style.min.css">
+    <style>
+        .chart-box {
+          border: 1px solid #dee2e6; /* Bootstrap default border color */
+          border-radius: 10px;
+          padding: 15px;
+          margin-bottom: 20px;
+        }
+      </style>
 </head>
 <body>
 
 <div id="mytask-layout" class="theme-indigo">
-    
+
     <!-- sidebar -->
     <div class="sidebar px-4 py-4 py-md-5 me-0">
         <div class="d-flex flex-column h-100">
@@ -104,7 +112,7 @@
                     <ul class="sub-menu collapse" id="menu-Componentsone">
                         <li><a class="ms-link" href="ParkingLotDash.html"><span>Parking Lot Status</span> </a></li>
                     </ul> 
-                    </ul> 
+                    </ul>  
                 </li>
             </ul>
 
@@ -129,7 +137,7 @@
 
 
     <!-- main body area -->
-    <div class="main px-lg-4 px-md-4">
+    <div class="main px-lg-4 px-md-4"> 
 
         <!-- Body: Header -->
         <div class="header">
@@ -280,401 +288,74 @@
             </nav>
         </div>
 
-        <!-- Body: Body -->
+        <!-- Body: Body -->       
         <div class="body d-flex py-lg-3 py-md-2">
             <div class="container-xxl">
                 <div class="row align-items-center">
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                            <h3 class="fw-bold mb-0">Tables</h3>
+                            <h3 class="fw-bold mb-0">Campus Dashboard</h3>
+                            <div class="col-auto d-flex w-sm-100">
+                                <button type="button" class="btn btn-dark btn-set-task w-sm-100" data-bs-toggle="modal" data-bs-target="#tickadd"><i class="icofont-plus-circle me-2 fs-6"></i>Add Tickets</button>
+                            </div>
                         </div>
                     </div>
-                </div> <!-- Row end  -->
-
-                <div class="row align-item-center">
-                    <div class="col-md-12">
-                        <div class="card mb-3">
-                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Basic Table</h6> 
-                            </div>
-                            <div class="card-body basic-custome-color">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Otto</td>
-                                            <td>@twitter</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">4</th>
-                                            <td>Wilson</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">5</th>
-                                            <td>Alexander</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                </div>
-                            </div>
+                    <div class="container mt-5">
+                        <div class="form-group">
+                          <label for="campusSelect">Select Campus:</label>
+                          <select class="form-control" id="campusSelect" onchange="updateDashboard()">
+                            <option value="St. Hallows Campus">St. Hallows Campus</option>
+                            <option value="Glasnevien Campus">Glasnevien Campus</option>
+                            <option value="St. Patrick Campus">St. Patrick Campus</option>
+                          </select>
                         </div>
-                        <div class="card mb-3">
-                            <div class="card-header py-3  bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Variants Table</h6> 
-                                <p>Use contextual classes to color tables, table rows or individual cells.</p>
+                        <div class="row mt-4">
+                          <div class="col-md-4">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title">Total Campus Occupancy</h5>
+                                <canvas id="totalOccupancyChart" width="400" height="300"></canvas>
+                              </div>
                             </div>
-                            <div class="card-body  variants-custome-color">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">Class</th>
-                                            <th scope="col">Heading</th>
-                                            <th scope="col">Heading</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="table-primary">
-                                              <th scope="row">Primary</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-secondary">
-                                              <th scope="row">Secondary</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-success">
-                                              <th scope="row">Success</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-danger">
-                                              <th scope="row">Danger</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-warning">
-                                              <th scope="row">Warning</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-info">
-                                              <th scope="row">Info</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                              <th scope="row">Light</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                        </tbody>
-                                      </table>
-                                </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title">Current Occupancy Levels</h5>
+                                <canvas id="currentOccupancyChart" width="400" height="300"></canvas>
+                              </div>
                             </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title">Occupancy Trends Over Time</h5>
+                                <canvas id="occupancyTrendsChart" width="400" height="300"></canvas>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="card mb-3">
-                            <div class="card-header py-3  bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Striped Table</h6> 
-                                <p>Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</p>
+                        <div class="row mt-4">
+                          <div class="col-md-6">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title">Building Occupancy</h5>
+                                <canvas id="buildingOccupancyChart" width="400" height="300"></canvas>
+                              </div>
                             </div>
-                            <div class="card-body basic-custome-color">
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Otto</td>
-                                            <td>@twitter</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">4</th>
-                                            <td>Wilson</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">5</th>
-                                            <td>Alexander</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title">Wi-Fi Network Usage</h5>
+                                <canvas id="wifiUsageChart" width="400" height="300"></canvas>
+                              </div>
                             </div>
+                          </div>
                         </div>
-                        <div class="card mb-3">
-                            <div class="card-header py-3  bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Hoverable Table</h6> 
-                                <p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Otto</td>
-                                            <td>@twitter</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">4</th>
-                                            <td>Wilson</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">5</th>
-                                            <td>Alexander</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-header py-3  bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Datatable</h6> 
-                            </div>
-                            <div class="card-body">
-                                <table id="patient-table" class="table table-hover align-middle mb-0" style="width: 100%;">
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Patients</th>
-                                            <th>Age</th>
-                                            <th>Adress</th>
-                                            <th>Admited</th>
-                                            <th>Discharge</th>
-                                            <th>Progress</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>PT-0001</td>
-                                            <td><img src="assets/images/xs/avatar3.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Molly </span></td>
-                                            <td>45</td>
-                                            <td>70 Bowman St. South Windsor, CT 06074</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> <span class="sr-only">40% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-info">Admit</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0011</td>
-                                            <td><img src="assets/images/xs/avatar1.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Brian</span></td>
-                                            <td>35</td>
-                                            <td>123 6th St. Melbourne, FL 32904</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 22, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0045</td>
-                                            <td><img src="assets/images/xs/avatar2.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Julia</span></td>
-                                            <td>42</td>
-                                            <td>4 Shirley Ave. West Chicago, IL 60185</td>
-                                            <td>May 17, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0030</td>
-                                            <td><img src="assets/images/xs/avatar4.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Sonia</span></td>
-                                            <td>25</td>
-                                            <td>123 6th St. Melbourne, FL 32904</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 23, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%;"> <span class="sr-only">15% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-info">Admit</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0078</td>
-                                            <td><img src="assets/images/xs/avatar5.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Adam H</span></td>
-                                            <td>18</td>
-                                            <td>4 Shirley Ave. West Chicago, IL 60185</td>
-                                            <td>May 18, 2021</td>
-                                            <td>May 18, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"> <span class="sr-only">85% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-info">Admit</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0098</td>
-                                            <td><img src="assets/images/xs/avatar9.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Alexander</span></td>
-                                            <td>38</td>
-                                            <td>123 6th St. Melbourne, FL 32904</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 22, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0999</td>
-                                            <td><img src="assets/images/xs/avatar11.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Gabrielle</span></td>
-                                            <td>65</td>
-                                            <td>4 Shirley Ave. West Chicago, IL 60185</td>
-                                            <td>May 17, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0101</td>
-                                            <td><img src="assets/images/xs/avatar12.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Grace</span></td>
-                                            <td>40</td>
-                                            <td>4 Shirley Ave. West Chicago, IL 60185</td>
-                                            <td>May 17, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-1001</td>
-                                            <td><img src="assets/images/xs/avatar8.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Ryan </span></td>
-                                            <td>34</td>
-                                            <td>70 Bowman St. South Windsor, CT 06074</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> <span class="sr-only">40% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-info">Admit</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-1101</td>
-                                            <td><img src="assets/images/xs/avatar7.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Christian</span></td>
-                                            <td>21</td>
-                                            <td>123 6th St. Melbourne, FL 32904</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 22, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div><!-- Row end  -->
-
-            </div>
-        </div>
-      
-        <!-- Modal Members-->
+                      </div>
+                    
+                    <!-- Modal Members-->
         <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -810,10 +491,98 @@
             </div>
         </div>
 
-    </div>
-  
-</div>
+        <!-- Add Tickit-->
+        <div class="modal fade" id="tickadd" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Tickit Add</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="sub">
+                    </div>
+                    <div class="deadline-form">
+                        <form>
+                            <div class="row g-3 mb-3">
+                              <div class="col">
+                                <label for="depone" class="form-label">Assign Name</label>
+                                <input type="text" class="form-control" id="depone">
+                              </div>
+                              <div class="col">
+                                <label for="deptwo" class="form-label">Creted Date</label>
+                                <input type="date" class="form-control" id="deptwo">
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Status</label>
+                        <select class="form-select">
+                            <option selected>In Progress</option>
+                            <option value="1">Completed</option>
+                            <option value="2">Wating</option>
+                            <option value="3">Decline</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                    <button type="submit" class="btn btn-primary">sent</button>
+                </div>
+            </div>
+            </div>
+        </div>
 
+         <!-- Edit Tickit-->
+         <div class="modal fade" id="edittickit" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  fw-bold" id="edittickitLabel"> Tickit Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub1" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="sub1" value="punching time not proper">
+                    </div>
+                    <div class="deadline-form">
+                        <form>
+                            <div class="row g-3 mb-3">
+                              <div class="col">
+                                <label for="depone11" class="form-label">Assign Name</label>
+                                <input type="text" class="form-control" id="depone11" value="Victor Rampling">
+                              </div>
+                              <div class="col">
+                                <label for="deptwo56" class="form-label">Creted Date</label>
+                                <input type="date" class="form-control" id="deptwo56" value="2021-02-25">
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Status</label>
+                        <select class="form-select">
+                            <option selected>Completed</option>
+                            <option value="1">In Progress</option>
+                            <option value="2">Wating</option>
+                            <option value="3">Decline</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                    <button type="submit" class="btn btn-primary">sent</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
 <!-- Jquery Core Js -->
 <script src="assets/bundles/libscripts.bundle.js"></script>
 
@@ -823,18 +592,199 @@
 <!-- Jquery Page Js -->
 <script src="../js/template.js"></script>
 <script>
+    // project data table
     $(document).ready(function() {
-       $('#patient-table')
-       .addClass( 'nowrap' )
-       .dataTable( {
-           responsive: true,
-           columnDefs: [
-               { targets: [-1, -3], className: 'dt-body-right' }
-           ]
-       });
-   });
+        $('#myProjectTable')
+        .addClass( 'nowrap' )
+        .dataTable( {
+            responsive: true,
+            columnDefs: [
+                { targets: [-1, -3], className: 'dt-body-right' }
+            ]
+        });
+        $('.deleterow').on('click',function(){
+        var tablename = $(this).closest('table').DataTable();  
+        tablename
+                .row( $(this)
+                .parents('tr') )
+                .remove()
+                .draw();
 
+        } );
+    });
 </script>
- 
 </body>
-</html> 
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Sample data for demonstration
+    const campusData = {
+      "St. Hallows Campus": {
+        totalOccupancy: [100, 150, 200, 180, 220, 250],
+        currentOccupancy: [50, 60, 70, 65, 80, 75, 70],
+        occupancyTrends: [30, 40, 50, 45, 55, 60, 55],
+        buildingOccupancy: {
+          labels: ["Building A", "Building B", "Building C", "Building D", "Building E"],
+          morning: [30, 40, 50, 45, 55],
+          afternoon: [40, 50, 60, 55, 65],
+          evening: [20, 30, 40, 35, 45]
+        },
+        wifiUsage: [20, 30, 25, 15, 10]
+      },
+      "Glasnevien Campus": {
+        totalOccupancy: [80, 120, 160, 140, 180, 200],
+        currentOccupancy: [45, 50, 55, 60, 65, 70, 75],
+        occupancyTrends: [25, 30, 35, 40, 45, 50, 55],
+        buildingOccupancy: {
+          labels: ["Building X", "Building Y", "Building Z", "Building W", "Building V"],
+          morning: [20, 30, 40, 35, 45],
+          afternoon: [30, 40, 50, 45, 55],
+          evening: [15, 25, 35, 30, 40]
+        },
+        wifiUsage: [15, 25, 20, 10, 5]
+      },
+      "St. Patrick Campus": {
+        totalOccupancy: [70, 110, 150, 130, 170, 190],
+        currentOccupancy: [40, 45, 50, 55, 60, 65, 70],
+        occupancyTrends: [20, 25, 30, 35, 40, 45, 50],
+        buildingOccupancy: {
+          labels: ["Building P", "Building Q", "Building R", "Building S", "Building T"],
+          morning: [15, 25, 35, 30, 40],
+          afternoon: [25, 35, 45, 40, 50],
+          evening: [10, 20, 30, 25, 35]
+        },
+        wifiUsage: [10, 20, 15, 5, 3]
+      }
+      // Add more campuses data as needed
+    };
+
+    // Function to update dashboard based on selected campus
+    function updateDashboard() {
+      const selectedCampus = document.getElementById("campusSelect").value;
+
+      // Update Total Campus Occupancy chart
+      const totalOccupancyChart = document.getElementById("totalOccupancyChart").getContext("2d");
+      new Chart(totalOccupancyChart, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [{
+            label: "Total Occupancy",
+            data: campusData[selectedCampus].totalOccupancy,
+            fill: false,
+            borderColor: "rgb(75, 192, 192)",
+            tension: 0.1
+          }]
+        }
+      });
+
+      // Update Current Occupancy Levels chart
+      const currentOccupancyChart = document.getElementById("currentOccupancyChart").getContext("2d");
+      new Chart(currentOccupancyChart, {
+        type: "line",
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          datasets: [{
+            label: "Current Occupancy",
+            data: campusData[selectedCampus].currentOccupancy,
+            fill: false,
+            borderColor: "rgb(255, 99, 132)",
+            tension: 0.1
+          }]
+        }
+      });
+
+      // Update Occupancy Trends Over Time chart
+      const occupancyTrendsChart = document.getElementById("occupancyTrendsChart").getContext("2d");
+      new Chart(occupancyTrendsChart, {
+        type: "line",
+        data: {
+          labels: ["8AM", "10AM", "12PM", "2PM", "4PM", "6PM", "8PM"],
+          datasets: [{
+            label: "Occupancy Trends",
+            data: campusData[selectedCampus].occupancyTrends,
+            fill: false,
+            borderColor: "rgb(54, 162, 235)",
+            tension: 0.1
+          }]
+        }
+      });
+
+      // Update Building Occupancy chart
+      const buildingOccupancyChart = document.getElementById("buildingOccupancyChart").getContext("2d");
+      new Chart(buildingOccupancyChart, {
+        type: "bar",
+        data: {
+          labels: campusData[selectedCampus].buildingOccupancy.labels,
+          datasets: [{
+            label: "Morning",
+            data: campusData[selectedCampus].buildingOccupancy.morning,
+            backgroundColor: "rgba(255, 99, 132, 0.5)"
+          }, {
+            label: "Afternoon",
+            data: campusData[selectedCampus].buildingOccupancy.afternoon,
+            backgroundColor: "rgba(54, 162, 235, 0.5)"
+          }, {
+            label: "Evening",
+            data: campusData[selectedCampus].buildingOccupancy.evening,
+            backgroundColor: "rgba(255, 205, 86, 0.5)"
+          }]
+        },
+        options: {
+          tooltips: {
+            mode: 'index',
+            intersect: false
+          },
+          scales: {
+            xAxes: [{
+              stacked: true,
+            }],
+            yAxes: [{
+              stacked: true
+            }]
+          }
+        }
+      });
+
+      // Update Wi-Fi Network Usage chart
+      const wifiUsageChart = document.getElementById("wifiUsageChart").getContext("2d");
+      new Chart(wifiUsageChart, {
+        type: "pie",
+        data: {
+          labels: ["Library", "Classrooms", "Cafeteria", "Gym", "Outdoor Spaces"],
+          datasets: [{
+            label: "Wi-Fi Usage",
+            data: campusData[selectedCampus].wifiUsage,
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+              "rgb(75, 192, 192)",
+              "rgb(153, 102, 255)"
+            ]
+          }]
+        }
+      });
+    }
+
+    // Initial call to update dashboard with default campus
+    updateDashboard();
+  </script>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

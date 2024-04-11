@@ -40,10 +40,10 @@
 
                 <!-- DASHBOARD -->
                 <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#dashboard-Components" href="#">
+                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#dashboard-Components" href="#">
                         <i class="icofont-home fs-5"></i> <span>Dashboard</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="dashboard-Components">
+                    <ul class="sub-menu collapse show" id="dashboard-Components">
                         <li><a class="ms-link active" href="index.html"> <span>Smart Dashboard</span></a></li>
                         <li><a class="ms-link" href="project-dashboard.html"> <span>test Dashboard</span></a></li>
                     </ul>
@@ -59,14 +59,14 @@
                         <li><a class="ms-link" href="timesheet.html"><span>Outdoor Air Quality</span></a></li>
                     </ul>
                 </li>
-
+                
                 <!-- NOISE LEVEL -->
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#tikit-Components" href="#"><i
                             class="icofont-sound-wave"></i> <span>Noise Level Monitoring</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="tikit-Components">
-                        <li><a class="ms-link" href="tickets.html"> <span>Noise Level Form</span></a></li>
+                        <li><a class="ms-link" href="NoiseData.html"> <span>Noise Level </span></a></li>
                     </ul>
                 </li>
 
@@ -76,7 +76,10 @@
                             class="icofont-people"></i> <span>Room Occupancy Monitoring</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="client-Components">
-                        <li><a class="ms-link" href="ourclients.html"> <span>Room Occupancy Form</span></a></li>
+                        <li><a class="ms-link" href="RoomOccupancy.html"> <span>Room Occupancy Form</span></a></li>
+                    </ul>
+                    <ul class="sub-menu collapse" id="client-Components">
+                        <li><a class="ms-link" href="RoomOccupancyDash.html"> <span>Room Occupancy Dashboard</span></a></li>
                     </ul>
                 </li>
 
@@ -86,18 +89,22 @@
                             class="icofont-building"></i> <span>Campus Occupancy Monitoring</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="emp-Components">
-                        <li><a class="ms-link" href="members.html"> <span>Campus Occupancy</span></a></li>
+                        <li><a class="ms-link" href="CampusOccupancy.html"> <span>Campus Occupancy</span></a></li>
                     </ul>
                 </li>
-
+               
                 <!-- PARKING -->
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Componentsone" href="#"><i
                             class="icofont-car"></i> <span>Parking</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Componentsone">
-                        <li><a class="ms-link" href="invoices.html"><span>Parking Lot Status</span> </a></li>
+                        <li><a class="ms-link" href="ParkingForm.html"><span>Reserve Parking</span> </a></li>
                     </ul>
+                    <ul class="sub-menu collapse" id="menu-Componentsone">
+                        <li><a class="ms-link" href="ParkingLotDash.html"><span>Parking Lot Status</span> </a></li>
+                    </ul> 
+                    </ul> 
                 </li>
             </ul>
 
@@ -116,7 +123,7 @@
                     </div>
                 </li>
             </ul>
-
+            
         </div>
     </div>
 
@@ -128,7 +135,7 @@
         <div class="header">
             <nav class="navbar py-4">
                 <div class="container-xxl">
-
+    
                     <!-- header rightbar icon -->
                     <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
                         <div class="d-flex">
@@ -240,7 +247,7 @@
                                                 <small class="">Dylan.hunter@gmail.com</small>
                                             </div>
                                         </div>
-
+                                        
                                         <div><hr class="dropdown-divider border-dark"></div>
                                     </div>
                                     <div class="list-group m-2 ">
@@ -254,12 +261,12 @@
                             </div>
                         </div>
                     </div>
-
+    
                     <!-- menu toggler -->
                     <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
                         <span class="fa fa-bars"></span>
                     </button>
-
+    
                     <!-- main menu Search-->
                     <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
                         <div class="input-group flex-nowrap input-group-lg">
@@ -268,7 +275,7 @@
                             <button type="button" class="input-group-text add-member-top" id="addon-wrappingone" data-bs-toggle="modal" data-bs-target="#addUser"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
-
+    
                 </div>
             </nav>
         </div>
@@ -336,7 +343,7 @@
                                                     <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr>  
                                         <tr>
                                             <td class="text-success">04</td>
                                             <td class="text-success">Wednesday</td>
@@ -417,7 +424,7 @@
                 </div><!-- Row End -->
             </div>
         </div>
-
+        
         <!-- Modal Members-->
         <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -477,10 +484,10 @@
                                               <li>
                                                   <a class="dropdown-item" href="#">
                                                     <i class="icofont-check-circled"></i>
-
+                                                      
                                                     <span>All operations permission</span>
                                                    </a>
-
+                                                   
                                                 </li>
                                                 <li>
                                                      <a class="dropdown-item" href="#">
@@ -519,7 +526,7 @@
                                               <li>
                                                   <a class="dropdown-item" href="#">
                                                     <i class="icofont-check-circled"></i>
-
+                                                      
                                                     <span>All operations permission</span>
                                                    </a>
                                                 </li>
@@ -628,7 +635,7 @@
             ]
         });
         $('.deleterow').on('click',function(){
-        var tablename = $(this).closest('table').DataTable();
+        var tablename = $(this).closest('table').DataTable();  
         tablename
                 .row( $(this)
                 .parents('tr') )

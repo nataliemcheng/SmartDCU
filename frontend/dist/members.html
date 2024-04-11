@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
     <title>Vehicles</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
     <!-- project css file  -->
@@ -38,10 +38,10 @@
 
                 <!-- DASHBOARD -->
                 <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#dashboard-Components" href="#">
+                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#dashboard-Components" href="#">
                         <i class="icofont-home fs-5"></i> <span>Dashboard</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="dashboard-Components">
+                    <ul class="sub-menu collapse show" id="dashboard-Components">
                         <li><a class="ms-link active" href="index.html"> <span>Smart Dashboard</span></a></li>
                         <li><a class="ms-link" href="project-dashboard.html"> <span>test Dashboard</span></a></li>
                     </ul>
@@ -57,14 +57,14 @@
                         <li><a class="ms-link" href="timesheet.html"><span>Outdoor Air Quality</span></a></li>
                     </ul>
                 </li>
-
+                
                 <!-- NOISE LEVEL -->
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#tikit-Components" href="#"><i
                             class="icofont-sound-wave"></i> <span>Noise Level Monitoring</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="tikit-Components">
-                        <li><a class="ms-link" href="tickets.html"> <span>Noise Level Form</span></a></li>
+                        <li><a class="ms-link" href="NoiseData.html"> <span>Noise Level </span></a></li>
                     </ul>
                 </li>
 
@@ -74,7 +74,10 @@
                             class="icofont-people"></i> <span>Room Occupancy Monitoring</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="client-Components">
-                        <li><a class="ms-link" href="ourclients.html"> <span>Room Occupancy Form</span></a></li>
+                        <li><a class="ms-link" href="RoomOccupancy.html"> <span>Room Occupancy Form</span></a></li>
+                    </ul>
+                    <ul class="sub-menu collapse" id="client-Components">
+                        <li><a class="ms-link" href="RoomOccupancyDash.html"> <span>Room Occupancy Dashboard</span></a></li>
                     </ul>
                 </li>
 
@@ -84,18 +87,22 @@
                             class="icofont-building"></i> <span>Campus Occupancy Monitoring</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="emp-Components">
-                        <li><a class="ms-link" href="members.html"> <span>Campus Occupancy</span></a></li>
+                        <li><a class="ms-link" href="CampusOccupancy.html"> <span>Campus Occupancy</span></a></li>
                     </ul>
                 </li>
-
+               
                 <!-- PARKING -->
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Componentsone" href="#"><i
                             class="icofont-car"></i> <span>Parking</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Componentsone">
-                        <li><a class="ms-link" href="invoices.html"><span>Parking Lot Status</span> </a></li>
+                        <li><a class="ms-link" href="ParkingForm.html"><span>Reserve Parking</span> </a></li>
                     </ul>
+                    <ul class="sub-menu collapse" id="menu-Componentsone">
+                        <li><a class="ms-link" href="ParkingLotDash.html"><span>Parking Lot Status</span> </a></li>
+                    </ul> 
+                    </ul> 
                 </li>
             </ul>
 
@@ -114,7 +121,7 @@
                     </div>
                 </li>
             </ul>
-
+            
         </div>
     </div>
 
@@ -126,7 +133,7 @@
         <div class="header">
             <nav class="navbar py-4">
                 <div class="container-xxl">
-
+    
                     <!-- header rightbar icon -->
                     <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
                         <div class="d-flex">
@@ -238,7 +245,7 @@
                                                 <small class="">Dylan.hunter@gmail.com</small>
                                             </div>
                                         </div>
-
+                                        
                                         <div><hr class="dropdown-divider border-dark"></div>
                                     </div>
                                     <div class="list-group m-2 ">
@@ -252,12 +259,12 @@
                             </div>
                         </div>
                     </div>
-
+    
                     <!-- menu toggler -->
                     <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
                         <span class="fa fa-bars"></span>
                     </button>
-
+    
                     <!-- main menu Search-->
                     <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
                         <div class="input-group flex-nowrap input-group-lg">
@@ -266,7 +273,7 @@
                             <button type="button" class="input-group-text add-member-top" id="addon-wrappingone" data-bs-toggle="modal" data-bs-target="#addUser"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
-
+    
                 </div>
             </nav>
         </div>
@@ -321,7 +328,7 @@
                             </div>
                         </div>
                     </div><!-- Row End -->
-
+                    
                     <div class="col">
                         <div class="card teacher-card">
                             <div class="card-body d-flex">
@@ -517,7 +524,7 @@
                 </div>
             </div>
         </div>
-
+        
        <!-- Modal Members-->
        <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -580,7 +587,7 @@
                                                     Member
                                                 <span>Can view, edit, delete, comment on and save files</span>
                                                </a>
-
+                                               
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="#">
@@ -698,7 +705,7 @@
                                     <label for="exampleFormControlInput277" class="form-label">Password</label>
                                     <input type="Password" class="form-control" id="exampleFormControlInput277" placeholder="Password">
                                 </div>
-                                </div>
+                                </div> 
                                 <div class="row g-3 mb-3">
                                     <div class="col">
                                         <label for="exampleFormControlInput477" class="form-label">Email ID</label>
@@ -737,10 +744,10 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3">          
                             <label for="exampleFormControlTextarea78" class="form-label">Description (optional)</label>
                             <textarea class="form-control" id="exampleFormControlTextarea78" rows="3" placeholder="Add any extra details about the request"></textarea>
-                        </div>
+                        </div> 
                         <div class="table-responsive">
                             <table class="table table-striped custom-table">
                                 <thead>
@@ -779,166 +786,166 @@
                                     <tr>
                                         <td  class="fw-bold">Tasks</td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault9" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault10" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault12" checked>
-
+                        
                                         </td>
                                     </tr>
                                     <tr>
                                         <td  class="fw-bold">Chat</td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault13" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault14" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault15" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault16" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault17" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault18" checked>
-
+                        
                                         </td>
                                     </tr>
                                     <tr>
                                         <td  class="fw-bold">Estimates</td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault19" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault20" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault21" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault22" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault23" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault24" checked>
-
+                        
                                         </td>
                                     </tr>
                                     <tr>
                                         <td  class="fw-bold">Invoices</td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault25" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault26">
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault27" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault28">
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault29" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault30" checked>
-
+                        
                                         </td>
                                     </tr>
                                     <tr>
                                         <td  class="fw-bold">Timing Sheets</td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault31" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault32" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault33" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault34" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault35" checked>
-
+                        
                                         </td>
                                         <td class="text-center">
-
+                        
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault36" checked>
-
+                        
                                         </td>
                                     </tr>
                                 </tbody>
@@ -948,8 +955,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
                         <button type="button" class="btn btn-primary">Create</button>
-                    </div>
-                </div>
+                    </div> 
+                </div>  
             </div>
         </div>
     </div>

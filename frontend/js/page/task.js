@@ -1,6 +1,6 @@
 $(function() {
     "use strict";
-
+    
     $('.dd').nestable();
 
     $('.dd').on('change', function () {

@@ -1,22 +1,32 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Table Example </title>
+    <title>Noise Level</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
     <!-- plugin css file  -->
     <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
     <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
-
     <!-- project css file  -->
     <link rel="stylesheet" href="assets/css/my-task.style.min.css">
+    <style>
+        .section-container {
+            border: 2px solid #ccc; /* Border style */
+            background-color: #f9f9f9; /* Background color */
+            padding: 20px; /* Padding around the sections */
+            margin-bottom: 20px; /* Margin bottom to separate sections */
+            width: 330px;
+            height: 432px;
+        }
+    </style>
 </head>
 <body>
 
 <div id="mytask-layout" class="theme-indigo">
-    
+
     <!-- sidebar -->
     <div class="sidebar px-4 py-4 py-md-5 me-0">
         <div class="d-flex flex-column h-100">
@@ -129,7 +139,7 @@
 
 
     <!-- main body area -->
-    <div class="main px-lg-4 px-md-4">
+    <div class="main px-lg-4 px-md-4"> 
 
         <!-- Body: Header -->
         <div class="header">
@@ -280,400 +290,118 @@
             </nav>
         </div>
 
-        <!-- Body: Body -->
+        <!-- Body: Body -->       
         <div class="body d-flex py-lg-3 py-md-2">
             <div class="container-xxl">
                 <div class="row align-items-center">
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                            <h3 class="fw-bold mb-0">Tables</h3>
+                            <h3 class="fw-bold mb-0">Noise Level Monitoring</h3>
+                            <div class="col-auto d-flex w-sm-100">
+                                <button type="button" class="btn btn-dark btn-set-task w-sm-100" data-bs-toggle="modal" data-bs-target="#tickadd"><i class="icofont-plus-circle me-2 fs-6"></i>Add Tickets</button>
+                            </div>
                         </div>
                     </div>
-                </div> <!-- Row end  -->
-
-                <div class="row align-item-center">
-                    <div class="col-md-12">
-                        <div class="card mb-3">
-                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Basic Table</h6> 
+                            </div> <!-- Row end  -->
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="section-container">
+                                        <!-- Summary Statistics -->
+                                        <div class="section" id="summaryStatistics">
+                                            <h2>Summary Statistics</h2>
+                                            <p>Noise Level (Average): <span class="value">65 dB</span></p>
+                                            <p>Noise Level (Max): <span class="value">85 dB</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="section-container">
+                                        <!-- Time Series Analysis -->
+                                        <div class="section" id="timeSeriesAnalysis">
+                                            <h2>Time Series Analysis</h2>
+                                            <canvas id="timeSeriesChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="section-container">
+                                        <!-- Comparative Analysis -->
+                                        <div class="section" id="comparativeAnalysis">
+                                            <h2>Comparative Analysis</h2>
+                                            <canvas id="comparativeChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>                                
                             </div>
-                            <div class="card-body basic-custome-color">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Otto</td>
-                                            <td>@twitter</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">4</th>
-                                            <td>Wilson</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">5</th>
-                                            <td>Alexander</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="section-container">
+                                        <!-- Event Detection -->
+                                        <div class="section" id="eventDetection">
+                                            <h2>Event Detection</h2>
+                                            <canvas id="eventDetectionChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="section-container">
+                                        <!-- Weather Conditions Overlay -->
+                                        <div class="section" id="weatherConditionsOverlay">
+                                            <h2>Weather Conditions Overlay</h2>
+                                            <div id="weatherInfo">Fetching weather data...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- Section 1: Alerts and Notifications -->
+                            <div class="col-md-4">
+                                <div class="section-container">
+                                    <!-- Alerts and Notifications -->
+                                    <div class="section" id="alertsNotifications">
+                                        <h2>Alerts and Notifications</h2>
+                                        <p id="alertsNotificationsContent">Loading...</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-header py-3  bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Variants Table</h6> 
-                                <p>Use contextual classes to color tables, table rows or individual cells.</p>
-                            </div>
-                            <div class="card-body  variants-custome-color">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">Class</th>
-                                            <th scope="col">Heading</th>
-                                            <th scope="col">Heading</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="table-primary">
-                                              <th scope="row">Primary</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-secondary">
-                                              <th scope="row">Secondary</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-success">
-                                              <th scope="row">Success</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-danger">
-                                              <th scope="row">Danger</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-warning">
-                                              <th scope="row">Warning</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-info">
-                                              <th scope="row">Info</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                              <th scope="row">Light</th>
-                                              <td>Cell</td>
-                                              <td>Cell</td>
-                                            </tr>
-                                        </tbody>
-                                      </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-header py-3  bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Striped Table</h6> 
-                                <p>Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</p>
-                            </div>
-                            <div class="card-body basic-custome-color">
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Otto</td>
-                                            <td>@twitter</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">4</th>
-                                            <td>Wilson</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">5</th>
-                                            <td>Alexander</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-header py-3  bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Hoverable Table</h6> 
-                                <p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Otto</td>
-                                            <td>@twitter</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">4</th>
-                                            <td>Wilson</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">5</th>
-                                            <td>Alexander</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-header py-3  bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Datatable</h6> 
-                            </div>
-                            <div class="card-body">
-                                <table id="patient-table" class="table table-hover align-middle mb-0" style="width: 100%;">
+                            
+                        <div class="section" id="dataTable">
+                            <h2>Data Table</h2>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>Patients</th>
-                                            <th>Age</th>
-                                            <th>Adress</th>
-                                            <th>Admited</th>
-                                            <th>Discharge</th>
-                                            <th>Progress</th>
-                                            <th>Status</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Location</th>
+                                            <th>Noise Level (dB)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>PT-0001</td>
-                                            <td><img src="assets/images/xs/avatar3.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Molly </span></td>
-                                            <td>45</td>
-                                            <td>70 Bowman St. South Windsor, CT 06074</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> <span class="sr-only">40% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-info">Admit</span></td>
+                                            <td>2024-04-10</td>
+                                            <td>10:00 AM</td>
+                                            <td>Building 1, Room 101</td>
+                                            <td>68</td>
                                         </tr>
                                         <tr>
-                                            <td>PT-0011</td>
-                                            <td><img src="assets/images/xs/avatar1.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Brian</span></td>
-                                            <td>35</td>
-                                            <td>123 6th St. Melbourne, FL 32904</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 22, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
+                                            <td>2024-04-10</td>
+                                            <td>10:15 AM</td>
+                                            <td>Building 2, Room 201</td>
+                                            <td>72</td>
                                         </tr>
                                         <tr>
-                                            <td>PT-0045</td>
-                                            <td><img src="assets/images/xs/avatar2.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Julia</span></td>
-                                            <td>42</td>
-                                            <td>4 Shirley Ave. West Chicago, IL 60185</td>
-                                            <td>May 17, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0030</td>
-                                            <td><img src="assets/images/xs/avatar4.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Sonia</span></td>
-                                            <td>25</td>
-                                            <td>123 6th St. Melbourne, FL 32904</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 23, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%;"> <span class="sr-only">15% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-info">Admit</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0078</td>
-                                            <td><img src="assets/images/xs/avatar5.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Adam H</span></td>
-                                            <td>18</td>
-                                            <td>4 Shirley Ave. West Chicago, IL 60185</td>
-                                            <td>May 18, 2021</td>
-                                            <td>May 18, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"> <span class="sr-only">85% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-info">Admit</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0098</td>
-                                            <td><img src="assets/images/xs/avatar9.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Alexander</span></td>
-                                            <td>38</td>
-                                            <td>123 6th St. Melbourne, FL 32904</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 22, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0999</td>
-                                            <td><img src="assets/images/xs/avatar11.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Gabrielle</span></td>
-                                            <td>65</td>
-                                            <td>4 Shirley Ave. West Chicago, IL 60185</td>
-                                            <td>May 17, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-0101</td>
-                                            <td><img src="assets/images/xs/avatar12.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Grace</span></td>
-                                            <td>40</td>
-                                            <td>4 Shirley Ave. West Chicago, IL 60185</td>
-                                            <td>May 17, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-1001</td>
-                                            <td><img src="assets/images/xs/avatar8.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Ryan </span></td>
-                                            <td>34</td>
-                                            <td>70 Bowman St. South Windsor, CT 06074</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 16, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> <span class="sr-only">40% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-info">Admit</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PT-1101</td>
-                                            <td><img src="assets/images/xs/avatar7.jpg" class="avatar sm rounded-circle me-2" alt="profile-image"><span>Christian</span></td>
-                                            <td>21</td>
-                                            <td>123 6th St. Melbourne, FL 32904</td>
-                                            <td>May 13, 2021</td>
-                                            <td>May 22, 2021</td>
-                                            <td>
-                                                <div class="progress" style="height: 3px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">Discharge</span></td>
+                                            <td>2024-04-10</td>
+                                            <td>10:30 AM</td>
+                                            <td>Building 3, Room 301</td>
+                                            <td>63</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        
-                    </div>
-                </div><!-- Row end  -->
+                
+                </html>                
 
-            </div>
-        </div>
-      
         <!-- Modal Members-->
         <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -810,10 +538,98 @@
             </div>
         </div>
 
-    </div>
-  
-</div>
+        <!-- Add Tickit-->
+        <div class="modal fade" id="tickadd" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Tickit Add</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="sub">
+                    </div>
+                    <div class="deadline-form">
+                        <form>
+                            <div class="row g-3 mb-3">
+                              <div class="col">
+                                <label for="depone" class="form-label">Assign Name</label>
+                                <input type="text" class="form-control" id="depone">
+                              </div>
+                              <div class="col">
+                                <label for="deptwo" class="form-label">Creted Date</label>
+                                <input type="date" class="form-control" id="deptwo">
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Status</label>
+                        <select class="form-select">
+                            <option selected>In Progress</option>
+                            <option value="1">Completed</option>
+                            <option value="2">Wating</option>
+                            <option value="3">Decline</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                    <button type="submit" class="btn btn-primary">sent</button>
+                </div>
+            </div>
+            </div>
+        </div>
 
+         <!-- Edit Tickit-->
+         <div class="modal fade" id="edittickit" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  fw-bold" id="edittickitLabel"> Tickit Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub1" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="sub1" value="punching time not proper">
+                    </div>
+                    <div class="deadline-form">
+                        <form>
+                            <div class="row g-3 mb-3">
+                              <div class="col">
+                                <label for="depone11" class="form-label">Assign Name</label>
+                                <input type="text" class="form-control" id="depone11" value="Victor Rampling">
+                              </div>
+                              <div class="col">
+                                <label for="deptwo56" class="form-label">Creted Date</label>
+                                <input type="date" class="form-control" id="deptwo56" value="2021-02-25">
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Status</label>
+                        <select class="form-select">
+                            <option selected>Completed</option>
+                            <option value="1">In Progress</option>
+                            <option value="2">Wating</option>
+                            <option value="3">Decline</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                    <button type="submit" class="btn btn-primary">sent</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
 <!-- Jquery Core Js -->
 <script src="assets/bundles/libscripts.bundle.js"></script>
 
@@ -823,18 +639,286 @@
 <!-- Jquery Page Js -->
 <script src="../js/template.js"></script>
 <script>
+    // project data table
     $(document).ready(function() {
-       $('#patient-table')
-       .addClass( 'nowrap' )
-       .dataTable( {
-           responsive: true,
-           columnDefs: [
-               { targets: [-1, -3], className: 'dt-body-right' }
-           ]
-       });
-   });
+        $('#myProjectTable')
+        .addClass( 'nowrap' )
+        .dataTable( {
+            responsive: true,
+            columnDefs: [
+                { targets: [-1, -3], className: 'dt-body-right' }
+            ]
+        });
+        $('.deleterow').on('click',function(){
+        var tablename = $(this).closest('table').DataTable();  
+        tablename
+                .row( $(this)
+                .parents('tr') )
+                .remove()
+                .draw();
+
+        } );
+    });
+</script>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+// Function to populate time series chart
+function populateTimeSeriesChart() {
+  const timeSeriesData = {
+    labels: ['10:00 AM', '10:15 AM', '10:30 AM'],
+    datasets: [{
+      label: 'Noise Levels',
+      data: [68, 72, 63],
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1
+    }]
+  };
+
+  const timeSeriesOptions = {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+
+  const timeSeriesCtx = document.getElementById('timeSeriesChart').getContext('2d');
+  const timeSeriesChart = new Chart(timeSeriesCtx, {
+    type: 'line',
+    data: timeSeriesData,
+    options: timeSeriesOptions
+  });
+}
+
+// Function to populate comparative analysis chart
+function populateComparativeChart() {
+  const comparativeData = {
+    labels: ['Building 1', 'Building 2', 'Building 3'],
+    datasets: [{
+      label: 'Noise Levels',
+      data: [68, 72, 63],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'
+      ],
+      borderWidth: 1
+    }]
+  };
+
+  const comparativeOptions = {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+
+  const comparativeCtx = document.getElementById('comparativeChart').getContext('2d');
+  const comparativeChart = new Chart(comparativeCtx, {
+    type: 'bar',
+    data: comparativeData,
+    options: comparativeOptions
+  });
+}
+
+// Function to initialize DataTable
+function initializeDataTable() {
+  $('#noiseDataTable').DataTable();
+}
+
+// Call the functions to populate charts and initialize DataTable
+$(document).ready(function() {
+  populateTimeSeriesChart();
+  populateComparativeChart();
+  initializeDataTable();
+});
 
 </script>
- 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Dummy data for demonstration
+        var timeLabels = ['10:00 AM', '10:15 AM', '10:30 AM'];
+        var noiseLevels = [68, 72, 63];
+
+        // Get the canvas element
+        var ctx = document.getElementById('timeSeriesChart').getContext('2d');
+
+        // Create the chart
+        var timeSeriesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timeLabels,
+                datasets: [{
+                    label: 'Noise Levels',
+                    data: noiseLevels,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Dummy data for comparative analysis (building names and noise levels)
+    const buildingNames = ["St. Patrick's Campus", "Glasnevin Campus", "All Hallows Campus"];
+    const noiseLevels = [75, 82, 68];
+
+    // Create a pie chart
+    const ctx = document.getElementById('comparativeChart').getContext('2d');
+    const comparativeChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: buildingNames,
+            datasets: [{
+                label: 'Noise Levels',
+                data: noiseLevels,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
 </body>
-</html> 
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Sample data for the chart
+    const eventData = {
+        labels: ['Event 1', 'Event 2', 'Event 3'],
+        datasets: [{
+            label: 'Events',
+            data: [5, 10, 7],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Get the canvas element
+    const eventCanvas = document.getElementById('eventDetectionChart').getContext('2d');
+
+    // Create the chart
+    const eventChart = new Chart(eventCanvas, {
+        type: 'bar',
+        data: eventData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Function to display sample weather data
+        function displaySampleWeatherData() {
+            const temperature = 20; // Sample temperature in Celsius
+            const humidity = 70;    // Sample humidity in percentage
+            const weatherDescription = 'Partly Cloudy'; // Sample weather description
+
+            // Update the weather information in the div
+            $('#weatherInfo').html(`
+                <p>Temperature: ${temperature} &#8451;</p>
+                <p>Humidity: ${humidity}%</p>
+                <p>Description: ${weatherDescription}</p>
+            `);
+        }
+
+        // Call the function to display sample weather data when the document is ready
+        displaySampleWeatherData();
+    });
+</script>
+
+<script>
+    // Sample data for alerts and notifications
+    const alertsNotificationsData = {
+        alerts: [
+            { time: "2024-04-10 10:00 AM", message: "High noise level detected" },
+            { time: "2024-04-10 11:30 AM", message: "Device malfunction detected" },
+            { time: "2024-04-10 02:45 PM", message: "System update scheduled" }
+        ],
+        notifications: [
+            { time: "2024-04-10 10:15 AM", message: "New user registration" },
+            { time: "2024-04-10 12:00 PM", message: "Data backup completed" }
+        ]
+    };
+
+    // Function to generate HTML for alerts and notifications data
+    function generateAlertsNotificationsHTML(data) {
+        const alertsHTML = data.alerts.map(item => `<p>${item.time}: ${item.message}</p>`).join('');
+        const notificationsHTML = data.notifications.map(item => `<p>${item.time}: ${item.message}</p>`).join('');
+        return `<strong>Alerts:</strong>${alertsHTML}<br><strong>Notifications:</strong>${notificationsHTML}`;
+    }
+
+    // Display alerts and notifications data
+    document.getElementById('alertsNotificationsContent').innerHTML = generateAlertsNotificationsHTML(alertsNotificationsData);
+    
+    // Sample data for user feedback and comments
+    const userFeedbackCommentsData = [];
+
+    // Function to generate HTML for user feedback and comments data
+    function generateUserFeedbackCommentsHTML(data) {
+        if (data.length === 0) {
+            return '<p>No user feedback or comments at the moment.</p>';
+        } else {
+            return data.map(item => `<p>${item.time}: ${item.comment}</p>`).join('');
+        }
+    }
+
+    // Display user feedback and comments data
+    document.getElementById('userFeedbackCommentsContent').innerHTML = generateUserFeedbackCommentsHTML(userFeedbackCommentsData);
+</script>
+
