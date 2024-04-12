@@ -16,7 +16,7 @@ The application is designed to provide information related to campus occupancy, 
 User | Role | Contributions
 --- | --- | ---
 --- | --- | ---
-![Koushik](https://github.com/koushikngowda7.png?size=40) Koushik | Frontend development & Javascript | Frontend->Created Web pages- Noise Level Monitoring,Reserve Room Form, room Occupancy Dashboard,Campus occupancy dashboard,Reserve Parking Form, Parking Occupancy Dashboard & JavaScript- Handled validations for web forms created and also created javascripts for all pages to display visual charts using jabvascript and created alerts for wrong entries.
+![Koushik](https://github.com/koushikngowda7.png?size=40) Koushik | Frontend development & Javascript | Frontend->Created Web pages- Noise Level Monitoring,Reserve Room Form, room Occupancy Dashboard,Campus occupancy dashboard,Reserve Parking Form, Parking Occupancy Dashboard, User Management Dashboard, FAQ Dashboard & JavaScript- Handled validations for web forms created and also created javascripts for all pages to display visual charts using javascript and created alerts for wrong entries.
 ![thibb1](https://github.com/Thibb1.png?size=40) Thibault | Frontend development | - Dynamic sidebar via JQuery<br>- README.md creation<br>- Fix ouside links
 |||
 
