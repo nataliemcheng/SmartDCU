@@ -12,11 +12,23 @@ create table if not exists smartdcu.roles (
     
 create table if not exists smartdcu.user_roles (
 	uuid int not null,
-    roleID int not null,
+    roleID int not null default 0,
     foreign key (uuid) references users (uuid),
     foreign key (roleID) references roles (roleID)
     );
 
-insert into smartdcu.roles (roleID, roleName) values ('0', 'user');
+insert into smartdcu.roles (roleID, roleName) values ('0', 'ROLE_USER');
 
-insert into smartdcu.roles (roleID, roleName) values ('1', 'admin');
+insert into smartdcu.roles (roleID, roleName) values ('1', 'ROLE_ADMIN');
+
+delimiter //
+
+create trigger smartdcu.assignRole
+after insert on smartdcu.users
+for each row
+begin
+	insert into smartdcu.user_roles (uuid)
+	values (new.uuid);
+end//
+
+delimiter ;
