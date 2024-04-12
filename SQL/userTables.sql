@@ -17,13 +17,13 @@ create table if not exists smartdcu.user_roles (
     foreign key (roleID) references roles (roleID)
     );
 
-insert into smartdcu.roles (roleID, roleName) values ('0', 'ROLE_USER');
+insert into smartdcu.roles (roleID, roleName) values ('0', 'ROLE_USER'); 
 
 insert into smartdcu.roles (roleID, roleName) values ('1', 'ROLE_ADMIN');
 
 delimiter //
 
-create trigger smartdcu.assignRole
+create trigger smartdcu.assignRole -- trigger automattically assigns role to any new user that is created
 after insert on smartdcu.users
 for each row
 begin
