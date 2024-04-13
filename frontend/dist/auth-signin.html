@@ -9,9 +9,9 @@ xmlns="http://www.w3.org/1999/xhtml"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <title>:: My-Task:: Signin</title>
-    <link rel="icon" href="../favicon.ico" type="image/x-icon"> <!-- Favicon-->
+    <link rel="icon" href="../../dist/assets/images/favicon.ico" type="image/x-icon"> <!-- Favicon-->
     <!-- project css file  -->
-    <link rel="stylesheet" href="../assets/css/my-task.style.min.css">
+    <link rel="stylesheet" href="../dist/assets/css/my-task.style.min.css">
 </head>
 
 <body>
@@ -40,7 +40,7 @@ xmlns="http://www.w3.org/1999/xhtml"
                             </div>
                             <!-- Image block -->
                             <div class="">
-                                <img src="../assets/images/login-img.svg" alt="login-img">
+                                <img src="../dist/assets/images/login-img.svg" alt="login-img">
                             </div>
                         </div>
                     </div>
@@ -48,17 +48,17 @@ xmlns="http://www.w3.org/1999/xhtml"
                         <div class="w-100 p-3 p-md-5 card border-0 bg-dark text-light" style="max-width: 32rem;">
                             <!-- Form -->
                             <div th:if="${param.error}">
-                            	<h1>Email or Password is Incorrect</h1>
+                            	<h5 style="text-align: center;">Email or Password is Incorrect</h5>
                             </div>
                             <form th:action="@{/signIN}" method="post" class="row g-1 p-3 p-md-4">
                                 <div class="col-12 text-center mb-1 mb-lg-5">
                                     <h1>Sign In</h1>
-                                    <span>Free access to our dashboard.</span>
+                                    <span style="font-size: 1.2em;">Free access to our dashboard.</span>
                                 </div>
                                 <div class="col-12 text-center mb-4">
                                     <a class="btn btn-lg btn-outline-secondary btn-block" href="/oauth2/authorization/github">
                                         <span class="d-flex justify-content-center align-items-center">
-                                            <img class="avatar xs me-2" src="../assets/images/github-mark-white.svg" alt="Image Description">
+                                            <img class="avatar xs me-2" src="../dist/assets/images/github-mark.svg" alt="Image Description">
                                             Sign In with GitHub
                                         </span>
                                     </a>
@@ -66,17 +66,17 @@ xmlns="http://www.w3.org/1999/xhtml"
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
-                                        <label class="form-label">Email address</label>
+                                        <label class="form-label" style="font-size: 1.2em;">Email address</label>
                                         <input type="email" class="form-control form-control-lg" name="email" placeholder="name@example.com">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <div class="form-label">
-                                            <span class="d-flex justify-content-between align-items-center">
+                                            <span class="d-flex justify-content-between align-items-center" style="font-size: 1.2em;">
                                                 Password
-                                                <a class="text-secondary" th:href="@{/auth-password-reset}">Forgot Password?</a>
-                                            </span>
+                                                <a class="text-secondary" th:href="@{/auth-password-reset}" style="font-size: inherit;">Forgot Password?</a>
+                                            </span>                                            
                                         </div>
                                         <input type="password" class="form-control form-control-lg" name="password" placeholder="***************">
                                     </div>
@@ -84,16 +84,14 @@ xmlns="http://www.w3.org/1999/xhtml"
                                 <div class="col-12">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Remember me
-                                        </label>
+                                        <label class="form-check-label" for="flexCheckDefault" style="font-size: 1.2em;">Remember me</label>                                        
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-4">
                                     <input type="submit" class="btn btn-lg btn-block btn-light lift text-uppercase" value="SIGN IN">
                                 </div>
                                 <div class="col-12 text-center mt-4">
-                                    <span class="text-muted">Don't have an account yet? <a th:href="@{/auth-signup}" class="text-secondary">Sign up here</a></span>
+                                    <span class="text-muted" style="font-size: 1.2em;">Don't have an account yet? <a th:href="@{/auth-signup}" class="text-secondary">Sign up here</a></span>
                                 </div>
                             </form>
                             <!-- End Form -->
@@ -106,7 +104,7 @@ xmlns="http://www.w3.org/1999/xhtml"
 </div>
 
 <!-- Jquery Core Js -->
-<script src="../assets/bundles/libscripts.bundle.js"></script>
+<script src="../dist/assets/bundles/libscripts.bundle.js"></script>
 
 </body>
 </html>
