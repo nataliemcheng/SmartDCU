@@ -2,6 +2,8 @@
 <html class="no-js" lang="en" dir="ltr"
 xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.springframework.org/security/tags">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -93,7 +95,8 @@ xmlns="http://www.w3.org/1999/xhtml"
                     </ul>
                 </li>
                 <!-- User Management Dashboard -->
-                <li><a class="m-link" href="UserManagementDashboard.html"> <i class="icofont-users-alt-3"></i> <span>User Management Dashboard</span></a></li>
+                 <li><a class="m-link" href="UserManagementDashboard.html"> <i class="icofont-users-alt-3"></i> <span>User Management Dashboard</span></a></li>
+                <li><a sec:authorize="hasRole('ROLE_ADMIN')" class="m-link" href="UserManagementDashboard.html"> <i class="icofont-users-alt-3"></i> <span>User Management Dashboard</span></a></li>
 
             </ul>
 
@@ -563,6 +566,38 @@ xmlns="http://www.w3.org/1999/xhtml"
 <!-- Jquery Page Js -->
 <script src="../js/template.js"></script>
 <script>
+var glasnevinCar = 0;
+var hallows= [];
+var glasnevin = [];
+var patricks = [];
+
+	$(document).ready(function() {
+		$.ajax({
+			url: '/api/ParkingLotDash',
+			type: 'GET',
+			dataType: 'json',
+			success: function(data){
+				data.forEach(function(parkingLot){
+					switch(parkingLot.campus) {
+					case "Glasnevin Campus":
+						glasnevin.push(parkingLot);
+						if(parkingLot.vehicle == "Car"){glasnevinCar+=1;}
+						break;
+					case "St. Hallows Campus":
+						hallows.push(parkingLot);
+						break;
+					case "St. Patrick Campus":
+						patricks.push(parkingLot);
+						break;
+					}
+				})
+			},
+			error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+		});
+	});
+	
     // project data table
     $(document).ready(function() {
         $('#myProjectTable')

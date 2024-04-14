@@ -87,8 +87,8 @@ xmlns="http://www.w3.org/1999/xhtml"
                     </ul>
                 </li>
                 <!-- User Management Dashboard -->
-                <li><a class="m-link" href="UserManagementDashboard.html"> <i class="icofont-users-alt-3"></i> <span>User Management Dashboard</span></a></li>
-            </ul>
+                 <li><a class="m-link" href="UserManagementDashboard.html"> <i class="icofont-users-alt-3"></i> <span>User Management Dashboard</span></a></li>
+                <li><a sec:authorize="hasRole('ROLE_ADMIN')" class="m-link" href="UserManagementDashboard.html"> <i class="icofont-users-alt-3"></i> <span>User Management Dashboard</span></a></li>
 
             <!-- Theme: Switch Theme -->
             <ul class="list-unstyled mb-0">
