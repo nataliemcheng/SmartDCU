@@ -360,7 +360,7 @@ xmlns="http://www.w3.org/1999/xhtml"
                                 </div> <!-- .card: Indoor Air Quality Monitoring -->
                             </div>
                             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12">
-                                <div class="card" style="height: 400px;">
+                                <div class="card">
                                     <div class="card-header py-3">
                                         <h6 class="mb-0 fw-bold">Importance of Indoor Air Quality</h6>
                                     </div>
@@ -377,6 +377,48 @@ xmlns="http://www.w3.org/1999/xhtml"
                             </div>
 
                                 </div> <!-- .card: My Timeline -->
+                            </div>
+                        </div>
+                        <div class="row taskboard g-3 py-xxl-4">
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 mt-xxl-4 mt-xl-4 mt-lg-4 mt-md-4 mt-sm-4 mt-4">
+                                <h6 class="fw-bold py-3 mb-0">Select Visualization Options</h6>
+                                <div class="visualization_options">
+                                    <form>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="line_chart">
+                                            <label class="form-check-label" for="line_chart">
+                                                Line Chart: Pollutant Levels Over Time
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="heatmap">
+                                            <label class="form-check-label" for="heatmap">
+                                                Heatmap: Pollution Hotspots Across Campus
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="bar_graph">
+                                            <label class="form-check-label" for="bar_graph">
+                                                Bar Graph: Pollutant Concentrations by Location
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 mt-xxl-4 mt-xl-4 mt-lg-4 mt-md-0 mt-sm-0 mt-0">
+                                <h6 class="fw-bold py-3 mb-0">Visualization Preview</h6>
+                                <div class="visualization_preview">
+                                    <!-- Visualization preview here -->
+                                    <!-- Use JavaScript to dynamically update the preview based on selected options -->
+                                </div>
+                            </div>
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 mt-xxl-4 mt-xl-4 mt-lg-4 mt-md-0 mt-sm-0 mt-0">
+                                <h6 class="fw-bold py-3 mb-0">Summary Panel</h6>
+                                <div class="summary_panel">
+                                    <!-- Summary panel will display selected options and real-time feedback -->
+                                    <!-- Use JavaScript to update the panel with selected options -->
+                                </div>
                             </div>
                         </div>
 

@@ -259,7 +259,7 @@ xmlns="http://www.w3.org/1999/xhtml"
                     <div class="col-lg-12 col-md-12 flex-column">
                         <div class="row g-3 row-deck">
                             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                                <div class="card" style="height: 400px;">
+                                <div class="card">
                                     <div class="card-header py-3">
                                         <h6 class="mb-0 fw-bold">Air Quality Monitoring</h6>
                                     </div>
@@ -373,6 +373,47 @@ xmlns="http://www.w3.org/1999/xhtml"
                                             On a global scale, air pollution can change the atmosphere's composition with important consequences, including depletion of the Earth's ozone layer and climate change.
                                         </p>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row taskboard g-3 py-xxl-4">
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 mt-xxl-4 mt-xl-4 mt-lg-4 mt-md-4 mt-sm-4 mt-4">
+                                <h6 class="fw-bold py-3 mb-0">Select Visualization Options</h6>
+                                <div class="visualization_options">
+                                    <form>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="line_chart">
+                                            <label class="form-check-label" for="line_chart">
+                                                Line Chart: Pollutant Trends Over Time
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="heatmap">
+                                            <label class="form-check-label" for="heatmap">
+                                                Heatmap: Pollution Distribution Across Region
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="bar_graph">
+                                            <label class="form-check-label" for="bar_graph">
+                                                Bar Graph: Pollutant Levels by Geographic Area
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 mt-xxl-4 mt-xl-4 mt-lg-4 mt-md-0 mt-sm-0 mt-0">
+                                <h6 class="fw-bold py-3 mb-0">Visualization Preview</h6>
+                                <div class="visualization_preview">
+                                    <!-- Visualization preview -->
+                                </div>
+                            </div>
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 mt-xxl-4 mt-xl-4 mt-lg-4 mt-md-0 mt-sm-0 mt-0">
+                                <h6 class="fw-bold py-3 mb-0">Summary Panel</h6>
+                                <div class="summary_panel">
+                                    <!-- Summary panel -->
                                 </div>
                             </div>
                         </div>
