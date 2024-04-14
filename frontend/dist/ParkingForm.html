@@ -656,6 +656,70 @@ function validateForm() {
 
   return formValid;
 }
+
+document.getElementById("parkingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    // Validate the form
+    if (!validateForm()) {
+        return;
+    }
+
+    // Collect form data
+    var timeIn = document.getElementById('timeIn').value;
+    var timeOut = document.getElementById('timeOut').value;
+
+    // Calculate the duration of parking
+    var duration = calculateDuration(timeIn, timeOut);
+
+    var formData = {
+        campus: document.getElementById('campusSelect').value,
+        date: document.getElementById('date').value,
+        duration: duration,
+        vehiclePlate: document.getElementById('vehiclePlate').value,
+        name: document.getElementById('name').value,
+        mobileNumber: document.getElementById('mobileNumber').value,
+        vehicleType: document.getElementById('vehicleType').value
+    };
+
+    // Log the data object for debugging
+    console.log('Sending JSON data:', formData);
+
+    // Send the data using fetch API
+    fetch('http://localhost:8080/submitCustomer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        console.log('Response status:', response.status);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(data => {
+        console.log('Data received:', data);
+        // You can perform further actions here if needed
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    
+    // Log form submission
+    console.log('Form submitted Succesfully');
+});
+
+// Function to calculate duration
+function calculateDuration(timeIn, timeOut) {
+    var timeInDate = new Date(`2000-01-01T${timeIn}`);
+    var timeOutDate = new Date(`2000-01-01T${timeOut}`);
+    var durationInMillis = timeOutDate - timeInDate;
+    var durationInMinutes = durationInMillis / (1000 * 60); // Convert milliseconds to minutes
+    return durationInMinutes;
+}
 </script>
 </body>
 </html>
