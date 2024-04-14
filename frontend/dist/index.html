@@ -307,22 +307,14 @@ xmlns="http://www.w3.org/1999/xhtml"
                             </div>
                             <div class="col-md-6">
                                 <div class="card">
-                                    <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                        <h6 class="mb-0 fw-bold ">Parking Lot Availability</h6>
-                                        <h4 class="mb-0 fw-bold ">150</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="mt-3" id="apex-MainCategories"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                        <h6 class="mb-0 fw-bold ">Room Occupancy</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="hiringsources"></div>
+                                    <!-- <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                        <h6 class="mb-0 fw-bold">Parking Lot Availability</h6>
+                                    </div> -->
+                                    <div class="form-group mb-3">
+                                        <label for="parkingLotAvailability">Parking Lot Availability</label>
+                                        <div class="chart-container">
+                                            <canvas id="parkingLotAvailabilityChart"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -344,7 +336,7 @@ xmlns="http://www.w3.org/1999/xhtml"
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-6 col-xl-12  flex-column">
+                            <div class="col-md-6 col-lg-6 col-xl-12  flex-column mt-5">
                                 <div class="card mb-3">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center flex-fill">
@@ -382,156 +374,156 @@ xmlns="http://www.w3.org/1999/xhtml"
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-lg-12 col-xl-12">
-                                <div class="card">
-                                <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                    <h6 class="mb-0 fw-bold ">Parking Lot Status</h6>
-                                </div>
-                                <!-- TODO: change icons -->
-                                <div class="card-body">
-                                    <div class="flex-grow-1">
-                                        <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
-                                            <div class="d-flex align-items-center flex-fill">
-                                                <i class="icofont-car fs-3"></i>
-                                                <div class="d-flex flex-column ps-3">
-                                                    <h6 class="fw-bold mb-0 small-14">Lot 1</h6>
-                                                    <span class="text-muted">Space 3A</span>
-                                                </div>
-                                            </div>
-                                            <div class="time-block text-truncate">
-                                                <i class="icofont-check"></i> +1
-                                            </div>
-                                        </div>
-                                        <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
-                                            <div class="d-flex align-items-center flex-fill">
-                                                <i class="icofont-car fs-3"></i>
-                                                <div class="d-flex flex-column ps-3">
-                                                    <h6 class="fw-bold mb-0 small-14">Lot 2</h6>
-                                                    <span class="text-muted">Space 4D</span>
-                                                </div>
-                                            </div>
-                                            <div class="time-block text-truncate">
-                                                <i class="icofont-check"></i> +1
-                                            </div>
-                                        </div>
-                                        <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
-                                            <div class="d-flex align-items-center flex-fill">
-                                                <i class="icofont-car fs-3"></i>
-                                                <div class="d-flex flex-column ps-3">
-                                                    <h6 class="fw-bold mb-0 small-14">Lot 6</h6>
-                                                    <span class="text-muted">Space 2C</span>
-                                                </div>
-                                            </div>
-                                            <div class="time-block text-truncate">
-                                                <i class="icofont-check"></i> +1
-                                            </div>
-                                        </div>
-                                        <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
-                                            <div class="d-flex align-items-center flex-fill">
-                                                <i class="icofont-car fs-3"></i>
-                                                <div class="d-flex flex-column ps-3">
-                                                    <h6 class="fw-bold mb-0 small-14">Lot 1</h6>
-                                                    <span class="text-muted">Space 10A</span>
-                                                </div>
-                                            </div>
-                                            <div class="time-block text-truncate">
-                                                <i class="icofont-check"></i> +1
-                                            </div>
-                                        </div>
-                                        <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
-                                            <div class="d-flex align-items-center flex-fill">
-                                                <i class="icofont-car fs-3"></i>
-                                                <div class="d-flex flex-column ps-3">
-                                                    <h6 class="fw-bold mb-0 small-14">Lot 3</h6>
-                                                    <span class="text-muted">Space 2C</span>
-                                                </div>
-                                            </div>
-                                            <div class="time-block text-truncate">
-                                                <i class="icofont-check"></i> +1
-                                            </div>
-                                        </div>
-                                        <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
-                                            <div class="d-flex align-items-center flex-fill">
-                                                <i class="icofont-car fs-3"></i>
-                                                <div class="d-flex flex-column ps-3">
-                                                    <h6 class="fw-bold mb-0 small-14">Lot 4</h6>
-                                                    <span class="text-muted">Space 7F</span>
-                                                </div>
-                                            </div>
-                                            <div class="time-block text-truncate">
-                                                <i class="icofont-check"></i> +1
-                                            </div>
-                                        </div>
-                                        <div class="py-2 d-flex align-items-center  flex-wrap">
-                                            <div class="d-flex align-items-center flex-fill">
-                                                <i class="icofont-car fs-3"></i>
-                                                <div class="d-flex flex-column ps-3">
-                                                    <h6 class="fw-bold mb-0 small-14">Lot 3</h6>
-                                                    <span class="text-muted">Space 5A</span>
-                                                </div>
-                                            </div>
-                                            <div class="time-block text-truncate">
-                                                <i class="icofont-check"></i> +1
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="card light-danger-bg">
+                    <div class="row mt-3">
+                        <div class="col-md-12 col-lg-12 col-xl-12">
+                            <div class="card">
                             <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Air Quality Monitoring</h6>
+                                <h6 class="mb-0 fw-bold ">Parking Lot Status</h6>
                             </div>
                             <div class="card-body">
-                                <div class="row g-3 align-items-center">
-                                    <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-2">
-                                        <h3 class="fw-bold">46</h3>
-                                        <p>The air quality index is <span class="fw-bold text-decoration-underline">Good </span> ,which is similar to yesterday at about this time.</p>
-                                        <div class="d-flex  justify-content-between text-center">
-                                            <div class="">
-                                                <h3 class="fw-bold">48</h3>
-                                                <span class="small">Indoor Air Quality</span>
-                                            </div>
-                                            <div class="">
-                                                <h3 class="fw-bold">44</h3>
-                                                <span class="small">Outdoor Air Quality</span>
+                                <div class="flex-grow-1">
+                                    <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
+                                        <div class="d-flex align-items-center flex-fill">
+                                            <i class="icofont-car fs-3"></i>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Lot 1</h6>
+                                                <span class="text-muted">Space 3A</span>
                                             </div>
                                         </div>
+                                        <div class="time-block text-truncate">
+                                            <i class="icofont-check"></i> +1
+                                        </div>
                                     </div>
-
-                                    <!-- TODO: change icons -->
-                                    <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-10">
-                                        <div class="row g-3 row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-6 row-deck top-perfomer">
-                                            <div class="col">
-                                                <div class="card shadow">
-                                                    <div class="card-body text-center d-flex flex-column justify-content-center">
-                                                        <i class="icofont-university fs-3"></i>
-                                                        <h6 class="fw-bold my-2 small-14">St. Patrick's Campus</h6>
-                                                        <span class="text-muted mb-2">Improved by</span>
-                                                        <h4 class="fw-bold text-primary fs-3">8%</h4>
-                                                    </div>
+                                    <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
+                                        <div class="d-flex align-items-center flex-fill">
+                                            <i class="icofont-car fs-3"></i>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Lot 2</h6>
+                                                <span class="text-muted">Space 4D</span>
+                                            </div>
+                                        </div>
+                                        <div class="time-block text-truncate">
+                                            <i class="icofont-check"></i> +1
+                                        </div>
+                                    </div>
+                                    <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
+                                        <div class="d-flex align-items-center flex-fill">
+                                            <i class="icofont-car fs-3"></i>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Lot 6</h6>
+                                                <span class="text-muted">Space 2C</span>
+                                            </div>
+                                        </div>
+                                        <div class="time-block text-truncate">
+                                            <i class="icofont-check"></i> +1
+                                        </div>
+                                    </div>
+                                    <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
+                                        <div class="d-flex align-items-center flex-fill">
+                                            <i class="icofont-car fs-3"></i>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Lot 1</h6>
+                                                <span class="text-muted">Space 10A</span>
+                                            </div>
+                                        </div>
+                                        <div class="time-block text-truncate">
+                                            <i class="icofont-check"></i> +1
+                                        </div>
+                                    </div>
+                                    <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
+                                        <div class="d-flex align-items-center flex-fill">
+                                            <i class="icofont-car fs-3"></i>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Lot 3</h6>
+                                                <span class="text-muted">Space 2C</span>
+                                            </div>
+                                        </div>
+                                        <div class="time-block text-truncate">
+                                            <i class="icofont-check"></i> +1
+                                        </div>
+                                    </div>
+                                    <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
+                                        <div class="d-flex align-items-center flex-fill">
+                                            <i class="icofont-car fs-3"></i>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Lot 4</h6>
+                                                <span class="text-muted">Space 7F</span>
+                                            </div>
+                                        </div>
+                                        <div class="time-block text-truncate">
+                                            <i class="icofont-check"></i> +1
+                                        </div>
+                                    </div>
+                                    <div class="py-2 d-flex align-items-center  flex-wrap">
+                                        <div class="d-flex align-items-center flex-fill">
+                                            <i class="icofont-car fs-3"></i>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Lot 3</h6>
+                                                <span class="text-muted">Space 5A</span>
+                                            </div>
+                                        </div>
+                                        <div class="time-block text-truncate">
+                                            <i class="icofont-check"></i> +1
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col mt-3">
+                            <div class="card light-danger-bg">
+                                <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                    <h6 class="mb-0 fw-bold ">Air Quality Monitoring</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-2">
+                                            <h3 class="fw-bold">46</h3>
+                                            <p>The air quality index is <span class="fw-bold text-decoration-underline">Good </span> ,which is similar to yesterday at about this time.</p>
+                                            <div class="d-flex  justify-content-between text-center">
+                                                <div class="">
+                                                    <h3 class="fw-bold">48</h3>
+                                                    <span class="small">Indoor Air Quality</span>
+                                                </div>
+                                                <div class="">
+                                                    <h3 class="fw-bold">44</h3>
+                                                    <span class="small">Outdoor Air Quality</span>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="card shadow">
-                                                    <div class="card-body text-center d-flex flex-column justify-content-center">
-                                                        <i class="icofont-university fs-3"></i>
-                                                        <h6 class="fw-bold my-2 small-14">Glasnevin Campus</h6>
-                                                        <span class="text-muted mb-2">Improved by</span>
-                                                        <h4 class="fw-bold text-primary fs-3">7%</h4>
+                                        </div>
+    
+                                        <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-10">
+                                            <div class="row g-3 row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-6 row-deck top-perfomer">
+                                                <div class="col">
+                                                    <div class="card shadow">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <i class="icofont-university fs-3"></i>
+                                                            <h6 class="fw-bold my-2 small-14">St. Patrick's Campus</h6>
+                                                            <span class="text-muted mb-2">Improved by</span>
+                                                            <h4 class="fw-bold text-primary fs-3">8%</h4>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card shadow">
-                                                    <div class="card-body text-center d-flex flex-column justify-content-center">
-                                                        <i class="icofont-university fs-3"></i>
-                                                        <h6 class="fw-bold my-2 small-14">All Hallows Campus</h6>
-                                                        <span class="text-muted mb-2">Dropped by</span>
-                                                        <h4 class="fw-bold text-primary fs-3">3%</h4>
+                                                <div class="col">
+                                                    <div class="card shadow">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <i class="icofont-university fs-3"></i>
+                                                            <h6 class="fw-bold my-2 small-14">Glasnevin Campus</h6>
+                                                            <span class="text-muted mb-2">Improved by</span>
+                                                            <h4 class="fw-bold text-primary fs-3">7%</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="card shadow">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <i class="icofont-university fs-3"></i>
+                                                            <h6 class="fw-bold my-2 small-14">All Hallows Campus</h6>
+                                                            <span class="text-muted mb-2">Dropped by</span>
+                                                            <h4 class="fw-bold text-primary fs-3">3%</h4>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -541,145 +533,11 @@ xmlns="http://www.w3.org/1999/xhtml"
                             </div>
                         </div>
                     </div>
+
                 </div><!-- Row End -->
             </div>
         </div>
 
-        <!-- Modal Members-->
-        <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title  fw-bold" id="addUserLabel">Employee Invitation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="inviteby_email">
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email address" id="exampleInputEmail1" aria-describedby="exampleInputEmail1">
-                            <button class="btn btn-dark" type="button" id="button-addon2">Sent</button>
-                        </div>
-                    </div>
-                    <div class="members_list">
-                        <h6 class="fw-bold ">Employee </h6>
-                        <ul class="list-unstyled list-group list-group-custom list-group-flush mb-0">
-                            <li class="list-group-item py-3 text-center text-md-start">
-                                <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
-                                    <div class="no-thumbnail mb-2 mb-md-0">
-                                        <img class="avatar lg rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
-                                    </div>
-                                    <div class="flex-fill ms-3 text-truncate">
-                                        <h6 class="mb-0  fw-bold">Rachel Carr(you)</h6>
-                                        <span class="text-muted">rachel.carr@gmail.com</span>
-                                    </div>
-                                    <div class="members-action">
-                                        <span class="members-role ">Admin</span>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="icofont-ui-settings  fs-6"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                              <li><a class="dropdown-item" href="#"><i class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a></li>
-                                              <li><a class="dropdown-item" href="#"><i class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item py-3 text-center text-md-start">
-                                <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
-                                    <div class="no-thumbnail mb-2 mb-md-0">
-                                        <img class="avatar lg rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
-                                    </div>
-                                    <div class="flex-fill ms-3 text-truncate">
-                                        <h6 class="mb-0  fw-bold">Lucas Baker<a href="#" class="link-secondary ms-2">(Resend invitation)</a></h6>
-                                        <span class="text-muted">lucas.baker@gmail.com</span>
-                                    </div>
-                                    <div class="members-action">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Members
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                              <li>
-                                                  <a class="dropdown-item" href="#">
-                                                    <i class="icofont-check-circled"></i>
-
-                                                    <span>All operations permission</span>
-                                                   </a>
-
-                                                </li>
-                                                <li>
-                                                     <a class="dropdown-item" href="#">
-                                                        <i class="fs-6 p-2 me-1"></i>
-                                                           <span>Only Invite & manage team</span>
-                                                       </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="icofont-ui-settings  fs-6"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                              <li><a class="dropdown-item" href="#"><i class="icofont-delete-alt fs-6 me-2"></i>Delete Member</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item py-3 text-center text-md-start">
-                                <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
-                                    <div class="no-thumbnail mb-2 mb-md-0">
-                                        <img class="avatar lg rounded-circle" src="assets/images/xs/avatar8.jpg" alt="">
-                                    </div>
-                                    <div class="flex-fill ms-3 text-truncate">
-                                        <h6 class="mb-0  fw-bold">Una Coleman</h6>
-                                        <span class="text-muted">una.coleman@gmail.com</span>
-                                    </div>
-                                    <div class="members-action">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Members
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                              <li>
-                                                  <a class="dropdown-item" href="#">
-                                                    <i class="icofont-check-circled"></i>
-
-                                                    <span>All operations permission</span>
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fs-6 p-2 me-1"></i>
-                                                           <span>Only Invite & manage team</span>
-                                                       </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="btn-group">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="icofont-ui-settings  fs-6"></i>
-                                                </button>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                  <li><a class="dropdown-item" href="#"><i class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a></li>
-                                                  <li><a class="dropdown-item" href="#"><i class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a></li>
-                                                  <li><a class="dropdown-item" href="#"><i class="icofont-delete-alt fs-6 me-2"></i>Suspend member</a></li>
-                                                  <li><a class="dropdown-item" href="#"><i class="icofont-not-allowed fs-6 me-2"></i>Delete Member</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -688,6 +546,42 @@ xmlns="http://www.w3.org/1999/xhtml"
 
 <!-- Plugin Js-->
 <script src="assets/bundles/apexcharts.bundle.js"></script>
+
+<script>
+    // Sample data for parking lot availability
+    const parkingAvailability = {
+        'Available': 120,
+        'Occupied': 60
+    };
+
+    // Function to update parking availability chart
+    function updateParkingLotAvailabilityChart() {
+        const ctx = document.getElementById('parkingLotAvailabilityChart').getContext('2d');
+        const data = {
+            labels: Object.keys(parkingAvailability),
+            datasets: [{
+                label: 'Parking Availability',
+                data: Object.values(parkingAvailability),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                ]
+            }]
+        };
+        new Chart(ctx, {
+            type: 'pie',
+            data: data,
+        });
+    }
+
+    // Call the function to initialize the chart
+    updateParking();
+
+    // Function to update parking availability chart
+    function updateParking() {
+        updateParkingLotAvailabilityChart();
+    }
+</script>
 
 <!-- Jquery Page Js -->
 <script src="../js/template.js"></script>
