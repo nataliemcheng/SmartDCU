@@ -690,6 +690,52 @@ xmlns="http://www.w3.org/1999/xhtml"
     })
     .catch(error => {
         console.error('Error:', error);
+
+        // Collect form data
+        var timeIn = document.getElementById('time-in').value;
+        var timeOut = document.getElementById('time-out').value;
+
+        // Calculate the duration of parking
+        var duration = calculateDuration(timeIn, timeOut);
+
+        var formData = {
+            campus: document.getElementById('campus').value,
+            date: document.getElementById('date').value,
+            duration: duration,
+            room_number: document.getElementById('room-number').value,
+            occupantName: document.getElementById('occupant-name').value,
+            mobileNumber: document.getElementById('contact').value,
+            purpose: document.getElementById('purpose').value
+        };
+
+        // Log the data object for debugging
+        console.log('Sending JSON data:', formData);
+
+        // Send the data using fetch API
+        fetch('http://localhost:8080/roomOccupancy', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            console.log('Response status:', response.status);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Data received:', data);
+            // You can perform further actions here if needed
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        
+        // Log form submission
+        console.log('Form submitteddddd');
     });
     
     // Log form submission
@@ -704,5 +750,14 @@ function calculateDuration(timeIn, timeOut) {
     var durationInMinutes = durationInMillis / (1000 * 60); // Convert milliseconds to minutes
     return durationInMinutes;
 }
+
+    // Function to calculate duration
+    function calculateDuration(timeIn, timeOut) {
+        var timeInDate = new Date(`2000-01-01T${timeIn}`);
+        var timeOutDate = new Date(`2000-01-01T${timeOut}`);
+        var durationInMillis = timeOutDate - timeInDate;
+        var durationInMinutes = durationInMillis / (1000 * 60); // Convert milliseconds to minutes
+        return durationInMinutes;
+    }
 </script>
 
