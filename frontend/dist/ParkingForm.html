@@ -686,7 +686,7 @@ document.getElementById("parkingForm").addEventListener("submit", function(event
     console.log('Sending JSON data:', formData);
 
     // Send the data using fetch API
-    fetch('http://localhost:8080/submitCustomer', {
+    fetch('http://localhost:8081/submitCustomer', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
